@@ -102,7 +102,3 @@ This project is licensed under the [MIT License](https://opensource.org/license/
 I would like to acknowledge the creators of Cassandra and other Merkle tree implementations for inspiring this project. Their work laid the foundation for my implementation.
 
 If you find this project useful, please consider giving it a star on GitHub to show your support!
-
----
-
-Feel free to modify this template to include any additional information specific to your project. Good luck with your Merkle tree implementation! If you have any further questions or need assistance, don't hesitate to ask.
