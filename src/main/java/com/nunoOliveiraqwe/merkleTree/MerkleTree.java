@@ -204,7 +204,7 @@ public class MerkleTree<V extends Comparable<V>, T extends Hashable<V>> {
 
         if (localNode.hash().compareTo(otherNode.hash()) != 0){
             if (localNode instanceof LeafNode<?,?>
-                    && !diffMap.containsKey(otherNode.hash())){
+                    && !diffMap.containsKey(localNode.hash())){
                 diffMap.put(localNode.hash(),(LeafNode<V, T>) localNode);
                 returnQueue.add((LeafNode<V, T>) localNode);
                 return;
