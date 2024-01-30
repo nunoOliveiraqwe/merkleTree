@@ -14,13 +14,13 @@ public class LeafNode<V extends Comparable<V>,T extends Hashable<V>> extends Abs
     private Node<V> parent;
 
     /**
-     * The underlying data of this leaf. Usualy merkle tree implementations will only
+     * The underlying data of this leaf. Usually merkle tree implementations will only
      * save the hash as part of the leaf or lazily calculate the hash at the retrieve moment.
      * The approach followed here is somewhat on the lazy side, however the calculation of the
      * hash is delegated to the data object itself, which can then decide on the algo and if
      * it should cache the value or not. A proper implementation of {@link Hashable} will
-     * always use the same algo for every instance of the same type, or the implementation makes
-     * no guarantees of consistency
+     * always use the same algo for every instance of the same type, but this class implementation makes
+     * no guarantees of consistency of hashing functions between all leaf nodes.
      */
     private final T hashableData;
 
