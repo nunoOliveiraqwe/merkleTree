@@ -3,7 +3,7 @@ plugins {
     `maven-publish`
 }
 
-group = "pt.shorty.java"
+group = "pt.shorty"
 version = "1.0-SNAPSHOT"
 
 repositories {
@@ -34,6 +34,9 @@ publishing {
     publications {
         register<MavenPublication>("gpr") {
             from(components["java"])
+            groupId = group.toString()
+            artifactId = "merkletree"
+            version = version.toString()
         }
     }
 }
