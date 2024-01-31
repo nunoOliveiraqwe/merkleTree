@@ -9,9 +9,9 @@ I created this project because I couldn't find a suitable straightforward implem
 
 ## Features
 
-- **Customizable Hashing**: This Merkle tree implementation allows users to choose any type of hash for any type of data. Both the hash function and the object are template parameters and the hashing is flexible enough so that it's possible to provide a hashing implementation for the hashing of D1+D2 where D1...n are data nodes.
+- **Customizable Hashing**: This Merkle tree implementation allows users to choose any type of hash for any type of data. Both the hash function and the object are template parameters and the hashing is flexible enough so that it's possible to provide a hashing implementation for the hashing branches as well as the hashable data.
 
-- **Multi level comparison**: The Merkle tree diffs trees of different levels. In practise this means one tree will have a data node count higher than the other, so nodes that don't exist on lower level tree are returned. 
+- **Multi level comparison**: The Merkle tree diffs trees of different levels. In practise this means if one tree has a data node count higher than the other, nodes that don't exist on lower level tree are also returned, instead of just nodes that dont match.
   
 
  **NOTE**: the tree that calls diffs is used as pivot, so calling  tree.diff(anotherTree) will produce different results than calling anotherTree.diff(tree) 
