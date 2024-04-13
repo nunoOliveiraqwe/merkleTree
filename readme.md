@@ -11,11 +11,15 @@ I created this project because I couldn't find a suitable straightforward implem
 
 - **Customizable Hashing**: This Merkle tree implementation allows users to choose any type of hash for any type of data. Both the hash function and the object are template parameters and the hashing is flexible enough so that it's possible to provide a hashing implementation for the hashing of D1+D2 where D1...n are data nodes.
 
-- **Multi level comparison**: The Merkle tree diffs trees of different levels. In practise this means one tree will have a data node count higher than the other, so nodes that don't exist on lower level tree are returned. 
+- **Multi level comparison**: This Merkle tree diffs trees of different levels. In practise this means one tree will have a data node count higher than the other, so nodes that don't exist on lower level tree are returned. 
   
 
  **NOTE**: the tree that calls diffs is used as pivot, so calling  tree.diff(anotherTree) will produce different results than calling anotherTree.diff(tree) 
-    - if levels don't match. Take the following trees as an example, with the caveat that Level2.hash(A) == Level3.hash(A)
+    - if levels don't match. In practise this tree is meant to tell if something changed but not what changed. It's primary purpose is to identify if any change occurred(inserts or updates) 
+    - and do so fast without comparing data blocks.
+ 
+
+Take the following trees as an example, with the caveat that Level2.hash(A) == Level3.hash(A)
 
 <table>
 <tr>
@@ -48,18 +52,28 @@ I created this project because I couldn't find a suitable straightforward implem
 </tr>
 </table>
 
-If the diff call is from the level 3 tree against the level 2, then the diff set will be Z,E; If the diff call is the reverse
-then, the result set will be Z. 
+If the diff call is from the level 3 tree against the level 2, then the diff set will be C,D,E; If the diff call is the reverse
+then, the result set will be A,B,Z,D due to level 3 being longer, meaning during diff H1 will compare against H1, 
+which will cause all data under the branch to be marked as a diff. 
+
+See unit test:
+```
+ pt.shorty.merkleTree.MerkleTreeTest#testStringMultiLevelTree
+```
 
 
 ## Getting Started
 
 Follow these steps to get started with using the Merkle tree in your projects:
 
-1. **Clone the Repository**: Start by cloning this GitHub repository to your local machine using the following command:
+1. **Add the following dependency to your gradle.build**:
 
 ```
-git clone https://github.com/nunoOliveiraqwe/merkleTree.git
+<dependency>
+  <groupId>pt.shorty</groupId>
+  <artifactId>merkletree</artifactId>
+  <version>1.0.1-SNAPSHOT</version>
+</dependency>
 ```
 
 

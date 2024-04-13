@@ -1,4 +1,4 @@
-package com.nunoOliveiraqwe.merkleTree;
+package pt.shorty.merkleTree;
 
 import java.util.Objects;
 

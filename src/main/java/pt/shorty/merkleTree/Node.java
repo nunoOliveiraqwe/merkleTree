@@ -1,6 +1,4 @@
-package com.nunoOliveiraqwe.merkleTree;
-
-import lombok.Setter;
+package pt.shorty.merkleTree;
 
 import java.util.ArrayList;
 import java.util.List;

@@ -1,4 +1,4 @@
-package com.nunoOliveiraqwe.merkleTree;
+package pt.shorty.merkleTree;
 
 /**
  * An printer interface that allows to abstract away here the content is being printed on
